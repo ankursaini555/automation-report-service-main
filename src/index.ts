@@ -40,9 +40,21 @@ app.get("/redis-health", async (req: Request, res: Response) => {
   const redisHealthy = await checkRedisHealth();
 
   if (redisHealthy) {
-    res.status(200).json({ status: "up", redis: "healthy" });
+    res
+      .status(200)
+      .json({
+        status: "up",
+        redis: "healthy",
+        timestamp: new Date().toISOString(),
+      });
   } else {
-    res.status(500).json({ status: "down", redis: "unreachable" });
+    res
+      .status(500)
+      .json({
+        status: "down",
+        redis: "unreachable",
+        timestamp: new Date().toISOString(),
+      });
   }
 });
 
