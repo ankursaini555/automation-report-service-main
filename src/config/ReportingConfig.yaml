@@ -1,0 +1,465 @@
+domains:
+  ONDC:TRV11:
+    versions:
+      "2.0.1":
+        flows:
+          STATION_CODE_FLOW_CATALOG:
+            - search
+            - on_search
+
+          STATION_CODE_FLOW_ORDER:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - status
+            - on_status
+
+          USER_CANCELLATION_FLOW:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - cancel
+            - on_cancel
+            - cancel
+            - on_cancel
+
+          TECHNICAL_CANCELLATION_FLOW:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - status
+            - on_status
+            - cancel
+            - on_cancel
+
+          DELAYED_CANCELLATION_FLOW_REJECTED:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - cancel
+            - on_cancel
+            - on_status
+
+          DELAYED_CANCELLATION_FLOW_ACCEPTED:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - cancel
+            - on_cancel
+            - on_update
+        optional_flows:
+          - DELAYED_CANCELLATION_FLOW_REJECTED
+        validationModules: "../validations/trv11/validator#validate"
+      "2.0.0":
+        flows:
+          STATION_CODE_FLOW_CATALOG:
+            - search
+            - on_search
+
+          STATION_CODE_FLOW_ORDER:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - status
+            - on_status
+
+          USER_CANCELLATION_FLOW:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - cancel
+            - on_cancel
+            - cancel
+            - on_cancel
+
+          TECHNICAL_CANCELLATION_FLOW:
+            - search
+            - on_search
+            - search
+            - on_search
+            - select
+            - on_select
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - status
+            - on_status
+            - cancel
+            - on_cancel
+
+        optional_flows:
+
+        validationModules: "../validations/trv11/validator#validate"
+  "nic2004:60232":
+    versions:
+      "1.2.5":
+        flows:
+          ORDER_FLOW_BASE_LINE:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+
+          RTO_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_cancel
+            - on_status
+
+          CASH_ON_DELIVERY_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+          PREPAID_PAYMENT_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+          QUICK_COMMERCE_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+          IMMEDIATE_DELIVERY_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+
+        optional_flows:
+          - RTO_FLOW
+          - CASH_ON_DELIVERY_FLOW
+          - PREPAID_PAYMENT_FLOW
+          - QUICK_COMMERCE_FLOW
+          - IMMEDIATE_DELIVERY_FLOW
+        validationModules: "../validations/nic2004:60232/validator#validate"
+
+  ONDC:LOG10:
+    versions:
+      "1.2.5":
+        flows:
+          FEATURE_DISCOVERY:
+            - search
+            - on_search
+          ORDER_FLOW_BASE_LINE:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+            - on_status
+
+          RTO_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_cancel
+            - on_status
+
+          CASH_ON_DELIVERY_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+            - on_status
+          PREPAID_PAYMENT_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - track
+            - on_track
+            - on_status
+            - on_status
+          QUICK_COMMERCE_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - on_status
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+          IMMEDIATE_DELIVERY_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - track
+            - on_track
+            - on_status
+            - on_status
+
+        optional_flows:
+          - CASH_ON_DELIVERY_FLOW
+          - PREPAID_PAYMENT_FLOW
+          - QUICK_COMMERCE_FLOW
+          - FEATURE_DISCOVERY
+        validationModules: "../validations/ONDC:LOG10/validator#validate"
+
+  ONDC:LOG11:
+    versions:
+      "1.2.5":
+        flows:
+          FEATURE_DISCOVERY:
+            - search
+            - on_search
+          ORDER_FLOW_BASE_LINE:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+
+          RTO_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_cancel
+            - on_status
+
+          CASH_ON_DELIVERY_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+          PREPAID_PAYMENT_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+          WEIGHT_DIFFERENTIAL_FLOW:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_update
+            - on_status
+            - on_status
+          PICKUP_DELIVERY_ATTEMPT:
+            - search
+            - on_search
+            - init
+            - on_init
+            - confirm
+            - on_confirm
+            - update
+            - on_update
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+            - on_status
+
+        optional_flows:
+          - CASH_ON_DELIVERY_FLOW
+          - PREPAID_PAYMENT_FLOW
+          - WEIGHT_DIFFERENTIAL_FLOW
+          - PICKUP_DELIVERY_ATTEMPT
+          - FEATURE_DISCOVERY
+        validationModules: "../validations/ONDC:LOG11/validator#validate"
