@@ -46,3 +46,27 @@ export const disconnectRedis = async (): Promise<void> => {
     client = null;
   }
 };
+
+
+export const JsonResponseToText = (json: any) => {
+  let text = "";
+
+  // Add the main service name and status
+  text += `${json.name
+    .replace(/\s+/g, "_")
+    .toUpperCase()}=${json.status.toUpperCase()}\n`;
+
+  // Process dependency services
+  if (Array.isArray(json.dependencyServices)) {
+    json.dependencyServices.forEach((service: any) => {
+      text += `${service.name
+        .replace(/\s+/g, "_")
+        .toUpperCase()}=${service.status.toUpperCase()}\n`;
+    });
+  }
+
+  // Add the timestamp
+  text += `TIME=${json.timestamp}`;
+
+  return text.trim();
+};

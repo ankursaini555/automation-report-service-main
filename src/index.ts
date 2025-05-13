@@ -1,10 +1,10 @@
 require("./config/otelConfig");
-import express, { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
-import reportRouter from "./routes/reportRoute";
+import express, { NextFunction, Request, Response } from "express";
 import { RedisService } from "ondc-automation-cache-lib";
+import { checkRedisHealth, JsonResponseToText } from "./config/redis";
+import reportRouter from "./routes/reportRoute";
 import { logError, logger, logInfo } from "./utils/logger";
-import { checkRedisHealth, disconnectRedis } from "./config/redis";
 
 // Initialize dotenv to load environment variables
 dotenv.config();
@@ -38,23 +38,18 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 // Health check route
 app.get("/redis-health", async (req: Request, res: Response) => {
   const redisHealthy = await checkRedisHealth();
+  // response object
+  const redisResponse = {
+    name: "Redis",
+    status: redisHealthy ? "up" : "down",
+    timestamp: new Date().toISOString(),
+  };
+  const response = JsonResponseToText(redisResponse);
 
   if (redisHealthy) {
-    res
-      .status(200)
-      .json({
-        status: "up",
-        redis: "healthy",
-        timestamp: new Date().toISOString(),
-      });
+    res.status(200).send(response);
   } else {
-    res
-      .status(500)
-      .json({
-        status: "down",
-        redis: "unreachable",
-        timestamp: new Date().toISOString(),
-      });
+    res.status(500).send(response);
   }
 });
 
