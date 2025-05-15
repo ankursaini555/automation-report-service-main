@@ -47,6 +47,7 @@ app.get("/redis-health", async (req: Request, res: Response) => {
   const response = JsonResponseToText(redisResponse);
 
   if (redisHealthy) {
+    res.setHeader("Content-Type", "text/plain");
     res.status(200).send(response);
   } else {
     res.status(500).send(response);
